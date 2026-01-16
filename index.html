@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head> Calculadora </head>
+<meta charset="UTF-8">
+<body>
+
+<h1> Calculadora de IMC </h1>
+
+	
+		<label> Peso (KG)</label> <input type="number" id="v1"/>
+		<label> Altura (m)</label> <input type="number" id="v2"/>
+		<a href="#" onclick="executar()">Executar</a>
+	
+	
+	
+	<script>
+	
+	const imc = (peso,altura) => peso/(altura*altura);
+const situacao = (valor_imc) => {
+	if(valor_imc<18.5)
+		return"abaixo do peso";
+	else if(valor_imc<25)
+		return"Peso ideal (parabéns)";
+	else if(valor_imc<30)
+		return"Levemente acima do peso";
+	else if(valor_imc<35)
+		return"Obesidade de grau I";
+	else if(valor_imc<40)
+		return"Obesidade de grau II (mórbida)";
+	else 
+		return"Obesidade de grau III (mórbida)";	
+	}
+	
+	
+	const executar = () => {
+		const peso = eval(document.getElementById("v1").value);
+		const altura = eval(document.getElementById("v2").value);
+		const v_imc = imc(peso,altura);
+		const v_sit = situacao(v_imc);
+		alert(`IMC: ${v_imc.toFixed(2)} :: Situação: ${v_sit}`);
+	 }
+</script>		
+
+	
+	
+	
+	
+	
+	
+</body>	
+</html>
